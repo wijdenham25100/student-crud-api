@@ -1,0 +1,40 @@
+{
+  "info": { "name": "Student CRUD API", "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json" },
+  "variable": [{ "key": "baseUrl", "value": "http://localhost:3000" }],
+  "item": [
+    {
+      "name": "Healthcheck",
+      "request": { "method": "GET", "url": "{{baseUrl}}/healthcheck" }
+    },
+    {
+      "name": "Create Student",
+      "request": {
+        "method": "POST",
+        "url": "{{baseUrl}}/api/v1/students",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\"first_name\":\"Max\",\"last_name\":\"Mustermann\",\"email\":\"max@example.com\",\"age\":22,\"grade\":\"A\"}" }
+      }
+    },
+    {
+      "name": "Get All Students",
+      "request": { "method": "GET", "url": "{{baseUrl}}/api/v1/students" }
+    },
+    {
+      "name": "Get Student by ID",
+      "request": { "method": "GET", "url": "{{baseUrl}}/api/v1/students/{{studentId}}" }
+    },
+    {
+      "name": "Update Student",
+      "request": {
+        "method": "PUT",
+        "url": "{{baseUrl}}/api/v1/students/{{studentId}}",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\"grade\":\"B+\"}" }
+      }
+    },
+    {
+      "name": "Delete Student",
+      "request": { "method": "DELETE", "url": "{{baseUrl}}/api/v1/students/{{studentId}}" }
+    }
+  ]
+}
